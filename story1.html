@@ -26,6 +26,10 @@ A restaurant<br/>
 
 <script>
 
+function Escape(s) {
+  return s.replace(/&/g, '&amp').replace(/</g, '&lt;').replace(/>/, '&gt;');
+}
+
 function Go() {
   var text = `
 <p>
@@ -49,39 +53,36 @@ and the arrows were dark brown with peacock feathers.
 
 <p>
 {girl} wrote the princess a story:
-</p>
 <i>
-<p>
 There was once a princess who rode about her kingdom conquering evil, and when it
 was all gone, she went into the deep forest. The princess grew stronger everyday, 
 but before she could conquer him, the evil Sorceror of the Dark captured her and imprisoned her in 
-a giant diamond in his dark dungeons. 
+a giant diamond in his dark dungeons.
+</i>
 {girl} got stuck after writing this bit.
 </p>
-</i>
 
 <p>
 The next day she showed her story to 
-{girl2}, who loved it and drew pictures. They printed it out and taped it into a book
+{girl2}, who loved it and drew pictures. They printed it out and taped it into a book.
 The next day {girl} was walking her dog when she noticed a gold shiny thing in a bush.
 She pulled it out, and realized it was a small piece of wood covered in gold and embedded with gems,
 shaped in the letters: The Story of Princess Illumina.
 </p>
 
 <p>
-When they had {food} and cheeseburgers at {restaurant}'s, she showed it to {girl2}.
-When they got back, they went to {girl2}'s
-{place}, and glued it onto the top of their story. The whole book glowed, and they found themselves
+When they had {food} and cheeseburgers at {restaurant}, she showed it to {girl2}.
+When they got back, they went to {place}, and glued it onto the top of their story. The whole book glowed, and they found themselves
 drifting into the air, and into a glowing golden portal. It snapped shut, the light went out, and 
 {girl2} and {girl} were drifting into a new world, with only their storybook.
 </p>
   `;
-  text = text.replace(/{girl2}/g, encodeURI(girl2.value));
-  text = text.replace(/{girl}/g, encodeURI(girl.value));
-  text = text.replace(/{pet}/g, encodeURI(pet.value));
-  text = text.replace(/{place}/g, encodeURI(place.value));
-  text = text.replace(/{food}/g, encodeURI(food.value));
-  text = text.replace(/{restaurant}/g, encodeURI(restaurant.value));
+  text = text.replace(/{girl2}/g, Escape(girl2.value));
+  text = text.replace(/{girl}/g, Escape(girl.value));
+  text = text.replace(/{pet}/g, Escape(pet.value));
+  text = text.replace(/{place}/g, Escape(place.value));
+  text = text.replace(/{food}/g, Escape(food.value));
+  text = text.replace(/{restaurant}/g, Escape(restaurant.value));
   story.innerHTML = text; 
 }
 
