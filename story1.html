@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+The name of a girl<br/>
+<input id="girl" width="10"><br/><br/>
+
+The name of another girl<br/>
+<input id="girl2" width="10"><br/><br/>
+
+The name of a land animal<br/>
+<input id="pet" width="10"><br/><br/>
+
+A place<br/>
+<input id="place" width="10"><br/><br/>
+
+A type of food<br/>
+<input id="food" width="10"><br/><br/>
+
+A restaurant<br/>
+<input id="restaurant" width="10"><br/><br/>
+
+<button id="go">Go</button>
+
+<div id="story"></div>
+
+<script>
+
+function Go() {
+  var text = `
+<p>
+{girl} had only one friend, named {girl2}. They had met a long time ago,
+when {girl} had decided to sit out on sports, and so had {girl2}, who 
+hated running. They sat on the playground, and the little children gathered
+about them and asked her to draw them a {pet}. {girl2} was good at
+drawing, and the {pet} seemed almost real. One of the children wanted to
+draw a princess to ride it, and a boy wanted her to have a wand.
+{girl} said that it should be a sword, and instead of a purse, the princess
+should have a bow over her back with arrows. The children agreed. Soon
+they gave the princess a name, Illumina.
+</p>
+
+<p>    
+Illumina had a silver crown with dark blue sapphires.
+Her dress was golden with white ruffles, and she had a glowing green sword.
+She had bright golden hair, and her eyes were bright blue. Her bow was a light pink,
+and the arrows were dark brown with peacock feathers.
+</p>
+
+<p>
+{girl} wrote the princess a story:
+</p>
+<i>
+<p>
+There was once a princess who rode about her kingdom conquering evil, and when it
+was all gone, she went into the deep forest. The princess grew stronger everyday, 
+but before she could conquer him, the evil Sorceror of the Dark captured her and imprisoned her in 
+a giant diamond in his dark dungeons. 
+{girl} got stuck after writing this bit.
+</p>
+</i>
+
+<p>
+The next day she showed her story to 
+{girl2}, who loved it and drew pictures. They printed it out and taped it into a book
+The next day {girl} was walking her dog when she noticed a gold shiny thing in a bush.
+She pulled it out, and realized it was a small piece of wood covered in gold and embedded with gems,
+shaped in the letters: The Story of Princess Illumina.
+</p>
+
+<p>
+When they had {food} and cheeseburgers at {restaurant}'s, she showed it to {girl2}.
+When they got back, they went to {girl2}'s
+{place}, and glued it onto the top of their story. The whole book glowed, and they found themselves
+drifting into the air, and into a glowing golden portal. It snapped shut, the light went out, and 
+{girl2} and {girl} were drifting into a new world, with only their storybook.
+</p>
+  `;
+  text = text.replace(/{girl2}/g, encodeURI(girl2.value));
+  text = text.replace(/{girl}/g, encodeURI(girl.value));
+  text = text.replace(/{pet}/g, encodeURI(pet.value));
+  text = text.replace(/{place}/g, encodeURI(place.value));
+  text = text.replace(/{food}/g, encodeURI(food.value));
+  text = text.replace(/{restaurant}/g, encodeURI(restaurant.value));
+  story.innerHTML = text; 
+}
+
+go.onclick = Go;
+
+</script>
+</body>
+
